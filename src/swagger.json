@@ -7,10 +7,10 @@
   },
   "paths": {
     "/categories": {
-      "tags": ["Category"],
       "post": {
+        "tags": ["Category"],
         "summary": "Create a category",
-        "description": "Create a new catwgory",
+        "description": "Create a new category",
         "requestBody": {
           "content": {
             "aplication/json": {
@@ -39,11 +39,12 @@
             "description": "Created"
           },
           "500": {
-            "description": "Category alterady exists"
+            "description": "Category already exists"
           }
         }
       },
       "get": {
+        "tags": ["Category"],
         "summary": "List all categories",
         "description": "List all categories",
         "response": {
@@ -65,6 +66,71 @@
       },
       "500": {
         "description": "Category alterady exists"
+      }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Upload a new category",
+        "description": "Upload a new category",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "response": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/specifications": {
+      "post": {
+        "tags": ["Specification"],
+        "summary": "Create a specification",
+        "description": "Create a new specification",
+        "requestBody": {
+          "content": {
+            "aplication/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "name": "category name sample",
+                  "description": "Category description sample"
+                }
+              }
+            }
+          }
+        },
+        "response": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Specification already exists"
+          }
+        }
       }
     }
   }
