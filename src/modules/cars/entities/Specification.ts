@@ -15,7 +15,7 @@ class Specification {
   @CreateDateColumn()
   created_at: Date;
 
-  constructor(name, description) {
+  constructor() {
     if (!this.id) {
       this.id = uuidv4();
     }

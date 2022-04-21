@@ -1,3 +1,4 @@
+import { AppDataSource } from "./../../../../database/index";
 import { getRepository, Repository } from "typeorm";
 import { Specification } from "../../entities/Specification";
 import {
@@ -11,7 +12,7 @@ class SpecificationsRepository implements ISpecificationsRepository {
   private repository: Repository<Specification>;
 
   constructor() {
-    this.repository = getRepository(Specification);
+    this.repository = AppDataSource.getRepository(Specification);
   }
   async create({ description, name }: ICreateSpecificationDTO): Promise<void> {
     const specification = this.repository.create({
