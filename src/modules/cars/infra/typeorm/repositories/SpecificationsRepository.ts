@@ -1,10 +1,10 @@
-import { AppDataSource } from "./../../../../database/index";
-import { getRepository, Repository } from "typeorm";
-import { Specification } from "../../entities/Specification";
+import { AppDataSource } from "../../../../../shared/infra/typeorm/index";
+import { Repository } from "typeorm";
+import { Specification } from "../entities/Specification";
 import {
   ISpecificationsRepository,
   ICreateSpecificationDTO,
-} from "../ISpecificationsRepository";
+} from "../../../repositories/ISpecificationsRepository";
 
 //DTO
 

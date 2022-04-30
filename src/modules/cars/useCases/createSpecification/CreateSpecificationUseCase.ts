@@ -1,6 +1,6 @@
 import { delay, inject, injectable } from "tsyringe";
-import { AppError } from "../../../../errors/AppError";
-import { SpecificationsRepository } from "../../repositories/implementarions/SpecificationsRepository";
+import { AppError } from "../../../../shared/errors/AppError";
+import { SpecificationsRepository } from "../../infra/typeorm/repositories/SpecificationsRepository";
 
 import { ISpecificationsRepository } from "../../repositories/ISpecificationsRepository";
 
