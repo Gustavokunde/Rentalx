@@ -25,7 +25,7 @@
     "seed": "ts-node-dev src/shared/infra/typeorm/seed/admin",
     "migration:run": "ts-node-dev ./node_modules/typeorm/cli migration:run -d ./src/shared/infra/typeorm/index.ts",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",

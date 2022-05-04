@@ -1,3 +1,4 @@
+import { AppDataSource } from "../../../../../shared/infra/typeorm";
 import { Repository } from "typeorm";
 import { ICreateCarDTO } from "../../../../cars/dtos/ICreateCarDTO";
 import { ICarsRepository } from "../../../../cars/repositories/ICarsRepository";
@@ -7,7 +8,10 @@ class CarsRepository implements ICarsRepository {
   private repository: Repository<Car>;
 
   constructor() {
-    this.repository;
+    this.repository = AppDataSource.getRepository(Car);
+  }
+  updateAvailable(car_id: string, arg1: boolean): Promise<void> {
+    throw new Error("Method not implemented.");
   }
 
   async create(request: ICreateCarDTO): Promise<Car> {

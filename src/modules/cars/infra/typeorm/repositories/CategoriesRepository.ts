@@ -5,13 +5,16 @@ import {
   ICategoriesRepository,
   ICreateCategoryDTO,
 } from "../../../repositories/ICategoriesRepository";
+import { AppDataSource } from "../../../../../shared/infra/typeorm";
 
 //DTO
 
 class CategoriesRepository implements ICategoriesRepository {
   private repository: Repository<Category>;
 
-  constructor() {}
+  constructor() {
+    this.repository = AppDataSource.getRepository(Category);
+  }
 
   async create({ description, name }: ICreateCategoryDTO): Promise<void> {
     const category = this.repository.create({ description, name });
