@@ -6,15 +6,14 @@ import {
   ManyToOne,
   PrimaryColumn,
   UpdateDateColumn,
-} from 'typeorm';
-import { v4 as uuidV4 } from 'uuid';
+} from "typeorm";
+import { v4 as uuidV4 } from "uuid";
 
-import { Car } from '@modules/cars/entities';
-import { RENTS_TABLE_NAME } from '@shared/infra/typeorm/utils';
+import { Car } from "../../../../cars/infra/typeorm/entities/Cars";
 
-type RentRelations = Array<'car'>;
+type RentRelations = Array<"car">;
 
-@Entity(RENTS_TABLE_NAME)
+@Entity("rentals")
 class Rent {
   @PrimaryColumn()
   id: string;
@@ -23,7 +22,7 @@ class Rent {
   car_id: string;
 
   @ManyToOne(() => Car)
-  @JoinColumn({ name: 'car_id' })
+  @JoinColumn({ name: "car_id" })
   car: Car;
 
   @Column()
